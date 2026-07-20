@@ -1,0 +1,24 @@
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+  # No build step required — this is a static site with serverless functions.
+  command = "echo 'No build step — publishing static assets.'"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Friendly API paths that proxy to the serverless functions
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# SPA-style fallback is NOT used; each page is a real file.
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
