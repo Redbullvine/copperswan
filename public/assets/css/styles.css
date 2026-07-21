@@ -9,9 +9,11 @@
   --copper-deep: #8a5522;
   --copper-glow: rgba(184, 115, 51, 0.35);
 
-  --black: #16130f;
-  --black-soft: #211c16;
-  --ink: #2a241d;
+  --black: #0a0a0c;
+  --black-soft: #141418;
+  --ink: #1c1a17;
+  /* Diagonal glossy sheen used to give dark surfaces a polished, mirror finish */
+  --sheen: linear-gradient(115deg, transparent 0%, rgba(255,255,255,0.05) 40%, rgba(255,255,255,0.11) 50%, rgba(255,255,255,0.04) 60%, transparent 100%);
 
   --white: #ffffff;
   --cream: #faf6f0;
@@ -92,8 +94,12 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.1; lett
 }
 .btn-ghost:hover { background: var(--copper); color: #fff; }
 
-.btn-dark { background: var(--black); color: var(--text-on-dark); }
-.btn-dark:hover { background: var(--black-soft); }
+.btn-dark {
+  background: linear-gradient(180deg, #1b1b21, #090909);
+  color: var(--text-on-dark);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.09);
+}
+.btn-dark:hover { background: linear-gradient(180deg, #24242b, #101014); }
 
 .btn-block { width: 100%; }
 
@@ -127,7 +133,8 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.1; lett
 
 .cart-btn {
   position: relative;
-  background: var(--black);
+  background: linear-gradient(180deg, #1b1b21, #090909);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.09);
   color: var(--text-on-dark);
   border: none;
   border-radius: 999px;
@@ -156,10 +163,21 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.1; lett
 .hero {
   position: relative;
   background:
-    radial-gradient(1200px 500px at 80% -10%, rgba(184, 115, 51, 0.25), transparent 60%),
-    linear-gradient(160deg, var(--black) 0%, var(--black-soft) 55%, #2c241b 100%);
+    radial-gradient(1200px 520px at 82% -12%, rgba(209, 138, 74, 0.18), transparent 62%),
+    var(--sheen),
+    linear-gradient(160deg, #0a0a0c 0%, #141419 52%, #0b0b0f 100%);
   color: var(--text-on-dark);
   overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+/* Soft mirror reflection along the base of the hero */
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 140px;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.05), transparent);
+  pointer-events: none;
 }
 .hero-grid {
   display: grid;
@@ -288,9 +306,10 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.1; lett
 
 /* ---------- Footer ---------- */
 .site-footer {
-  background: var(--black);
+  background: linear-gradient(180deg, #0b0b0e 0%, #050506 100%);
   color: #cbbda5;
   padding: 3.4rem 0 2rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; margin-bottom: 2.2rem; }
 .site-footer .brand .name { color: #fff; }
