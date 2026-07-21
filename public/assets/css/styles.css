@@ -119,7 +119,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.1; lett
   height: 74px;
 }
 .brand { display: flex; align-items: center; gap: 0.7rem; }
-.brand .mark { width: 42px; height: 42px; }
+.brand .mark { width: 50px; height: 50px; object-fit: contain; }
 .brand .name {
   font-family: var(--serif);
   font-size: 1.4rem;
@@ -206,7 +206,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.1; lett
 .hero .eyebrow { color: var(--copper-light); }
 .hero-cta { display: flex; gap: 0.9rem; flex-wrap: wrap; }
 .hero-art { display: flex; justify-content: center; }
-.hero-art svg { width: min(360px, 80%); filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5)); }
+.hero-art img { width: min(440px, 88%); filter: drop-shadow(0 22px 48px rgba(0,0,0,0.55)); }
 
 .trust-bar {
   display: flex;
