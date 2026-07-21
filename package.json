@@ -1,0 +1,19 @@
+{
+  "name": "copperswan",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Copper Swan Phase 1 local shopping and delivery marketplace demo",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "netlify dev",
+    "start": "netlify dev",
+    "build": "node --check public/assets/js/app.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
+  }
+}

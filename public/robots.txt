@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Sitemap: https://copperswan.net/sitemap.xml
+Disallow: /success.html
+Disallow: /cancel.html
+
+Sitemap: https://copperswan.net/sitemap.xml
