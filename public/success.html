@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Confirmed — The Copper Swan</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" href="/assets/img/logo-copperswan.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/">
+        <img class="mark" src="/assets/img/logo-copperswan.png" alt="" />
+        <span class="name">The Copper <b>Swan</b></span>
+      </a>
+    </div>
+  </header>
+
+  <main class="status-page">
+    <div class="status-card">
+      <div class="badge">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <h1>Thank you for your order!</h1>
+      <p>
+        Your payment was received and your order is confirmed. A receipt is on its way to your
+        email. We'll send tracking as soon as your goods ship.
+      </p>
+      <p id="ref" style="font-size:.85rem;color:var(--text-muted)"></p>
+      <div class="actions">
+        <a href="/" class="btn btn-primary">Continue Shopping</a>
+        <a href="mailto:support@copperswan.net" class="btn btn-ghost">Contact Support</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Clear the cart once an order completes, and show the reference.
+    try { localStorage.removeItem("copperswan_cart_v1"); } catch (e) {}
+    const id = new URLSearchParams(location.search).get("session_id");
+    if (id) document.getElementById("ref").textContent = "Order reference: " + id.slice(-12).toUpperCase();
+  </script>
+</body>
+</html>
